@@ -1,6 +1,8 @@
-#from sys import argv
+from sys import argv
 
+import bottle
 from bottle import *
+bottle.debug(True)
 
 #templates
 
@@ -25,7 +27,7 @@ def page(kt):
 
 @route("/static/<skra>")
 def static_skra(skra):
-    return static file(skra, root='/static')
+    #return static file(skra, root='/static')
 
 @route("/b")
 def index():
@@ -36,4 +38,6 @@ def index():
 def villa(error):
     return "<h2 style = color:red>dessi sida finnst ekki</h2>"
 
-run(host='localhost', port=8000, reloader=True, debug=True)
+
+bottle.run(host='0.0.0.0', port=argv[1])
+#run(host = 'localhost',port= 5000, reloader=True, debug=True)
