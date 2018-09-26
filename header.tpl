@@ -1,3 +1,4 @@
-<header class="header">
-	<h1>Hassar</h1>
+<header>
+	<h1>Verkefni 4 - Gengi Gjaldmiðla</h1>
+
 </header>
