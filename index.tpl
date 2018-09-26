@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Json verkefni</title>
-	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<title>verkefni 3 - B</title>
+	<link rel="stylesheet" type="text/css" href="static/stylesheet.css">
 </head>
 <body>
-	<% 
-	import json
-	with open("gengi.json","r", encoding="utf-8") as skra:
-		gengi = json.load(skra)
-	end
-	%>
 
-	%include("header.tpl")
+	<header></header>
+	%include ('header.tpl')
+
 	<div class="row">
-		<!--
 		<section>
-			<img src="/static/mynd4.jpg">
+		<h3>{{frettur{0}{0}}}</h3>
 		</section>
-	-->
+		<section><h2>nyheter</h2></section>
+		<section>mynd</section>
 		<section>
-			<h1>Gengi gjaldmiðla</h1>
-			<ul>
-				%for i in gengi['results']:
-					<li>
-						{{i['shortName']}} ( {{i['longName']}} ) = ISK: {{i['value']}}
-					</li>
-				%end
-			</ul>
+		<ul>
+		%cnt = 0;
+		% for i in frettir:
+	    	<li>
+		        <a href="/frettir/{{cnt}}"> {{i{0}}}</a>
+		    </li>
+    		%cnt +=1
+		%end
+		</ul>
 		</section>
 	</div>
-	%include("footer.tpl")
+
+	%include('footer.tpl')
 </body>
 </html>
